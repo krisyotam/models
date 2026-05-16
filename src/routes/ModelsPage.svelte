@@ -394,10 +394,10 @@
 			<ThemeToggle />
 			<a
 				class="source-link"
-				href="https://github.com/anomalyco/models.dev"
+				href="https://git.sr.ht/~krisyotam/models"
 				target="_blank"
 				rel="noreferrer"
-				aria-label="Models.dev data source"
+				aria-label="Models on SourceHut"
 			>
 				Source
 			</a>
