@@ -6,7 +6,7 @@
 	--provider-filter-height: 42px;
 	--status-height: 32px;
 	--font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'Roboto Mono', monospace;
-	--color-brand: #fd9527;
+	--color-brand: hsl(0 0% 10%);
 	--color-background: #fff;
 	--color-alpha-background: rgb(255 255 255 / 0.86);
 	--color-border: #ddd;
@@ -29,6 +29,7 @@ html.dark {
 	--color-text-secondary: hsl(0 0% 70%);
 	--color-text-tertiary: hsl(0 0% 45%);
 	--color-text-invert: hsl(0 0% 7%);
+	--color-brand: hsl(0 0% 98%);
 }
 
 /* system preference fallback when no explicit theme class is set */
@@ -43,6 +44,7 @@ html.dark {
 		--color-text-secondary: hsl(0 0% 70%);
 		--color-text-tertiary: hsl(0 0% 45%);
 		--color-text-invert: hsl(0 0% 7%);
+		--color-brand: hsl(0 0% 98%);
 	}
 }
 
