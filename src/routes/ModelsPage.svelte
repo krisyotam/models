@@ -384,10 +384,10 @@
 		<div class="header-right">
 			<a
 				class="icon-link"
-				href="https://git.sr.ht/~krisyotam/faster-models-dev"
+				href="https://git.sr.ht/~krisyotam/models"
 				target="_blank"
 				rel="noreferrer"
-				aria-label="Faster Models.dev on SourceHut"
+				aria-label="Models on SourceHut"
 			>
 				<SourceHutIcon size={20} />
 			</a>
