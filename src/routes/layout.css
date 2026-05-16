@@ -18,17 +18,31 @@
 	--color-text-invert: #fff;
 }
 
+/* matte black dark mode (krisyotam.com palette) */
+html.dark {
+	--color-background: hsl(0 0% 7%);
+	--color-alpha-background: hsl(0 0% 7% / 0.86);
+	--color-border: hsl(0 0% 17%);
+	--color-surface: hsl(0 0% 9%);
+	--color-surface-strong: hsl(0 0% 5%);
+	--color-text: hsl(0 0% 98%);
+	--color-text-secondary: hsl(0 0% 70%);
+	--color-text-tertiary: hsl(0 0% 45%);
+	--color-text-invert: hsl(0 0% 7%);
+}
+
+/* system preference fallback when no explicit theme class is set */
 @media (prefers-color-scheme: dark) {
-	:root {
-		--color-background: #1e1e1e;
-		--color-alpha-background: rgb(30 30 30 / 0.86);
-		--color-border: #363636;
-		--color-surface: #151515;
-		--color-surface-strong: #0f0f0f;
-		--color-text: #fff;
-		--color-text-secondary: #b6b6b6;
-		--color-text-tertiary: #737373;
-		--color-text-invert: #241505;
+	html:not(.light):not(.dark) {
+		--color-background: hsl(0 0% 7%);
+		--color-alpha-background: hsl(0 0% 7% / 0.86);
+		--color-border: hsl(0 0% 17%);
+		--color-surface: hsl(0 0% 9%);
+		--color-surface-strong: hsl(0 0% 5%);
+		--color-text: hsl(0 0% 98%);
+		--color-text-secondary: hsl(0 0% 70%);
+		--color-text-tertiary: hsl(0 0% 45%);
+		--color-text-invert: hsl(0 0% 7%);
 	}
 }
 

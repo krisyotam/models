@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { tick } from 'svelte';
-	import GitHubIcon from '$lib/components/GitHubIcon.svelte';
+	import SourceHutIcon from '$lib/components/SourceHutIcon.svelte';
+	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 	import { createSearchParamsSchema, useSearchParams } from 'runed/kit';
 	import type { ModelRow } from '$lib/models/types';
 	import { getModelRows } from './models.remote';
@@ -375,7 +376,7 @@
 <div class="page-shell">
 	<header class="app-header">
 		<div class="header-left">
-			<h1>Models.dev</h1>
+			<h1>Models</h1>
 			<span class="slash" aria-hidden="true"></span>
 			<p>An open-source database of AI models</p>
 		</div>
@@ -383,13 +384,14 @@
 		<div class="header-right">
 			<a
 				class="icon-link"
-				href="https://github.com/davis7dotsh/faster-models-dev"
+				href="https://git.sr.ht/~krisyotam/faster-models-dev"
 				target="_blank"
 				rel="noreferrer"
-				aria-label="Faster Models.dev on GitHub"
+				aria-label="Faster Models.dev on SourceHut"
 			>
-				<GitHubIcon size={20} />
+				<SourceHutIcon size={20} />
 			</a>
+			<ThemeToggle />
 			<a
 				class="source-link"
 				href="https://github.com/anomalyco/models.dev"
