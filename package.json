@@ -7,6 +7,7 @@
 		"dev": "vp dev",
 		"build": "vp build",
 		"preview": "vp preview",
+		"pull": "node scripts/pull-upstream.js",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "prettier --check . && svelte-kit sync && svelte-check --tsgo --tsconfig ./tsconfig.json && eslint .",
 		"check:watch": "svelte-kit sync && svelte-check --tsgo --tsconfig ./tsconfig.json --watch",
