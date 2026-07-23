@@ -1,20 +1,16 @@
 <script lang="ts">
 	import ModelsPage from './ModelsPage.svelte';
-	import ModelsPageLoading from './ModelsPageLoading.svelte';
+	import type { PageData } from './$types';
+
+	let { data }: { data: PageData } = $props();
 </script>
 
 <svelte:head>
-	<title>Models.dev — fast catalog</title>
+	<title>Models — catalog</title>
 	<meta
 		name="description"
 		content="A fast, searchable catalog of AI model specifications, pricing, limits, and capabilities powered by models.dev."
 	/>
 </svelte:head>
 
-<svelte:boundary>
-	<ModelsPage />
-
-	{#snippet pending()}
-		<ModelsPageLoading />
-	{/snippet}
-</svelte:boundary>
+<ModelsPage rows={data.rows} />

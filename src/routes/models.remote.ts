@@ -1,19 +1,10 @@
 import { query } from '$app/server';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
-import { flattenModelsDev } from '$lib/models/flatten';
-import type { ModelRow, ModelsDevApi } from '$lib/models/types';
+import { loadModelRows } from '$lib/models/load';
 
-let cachedRows: ModelRow[] | undefined;
-
-function loadModelRows(): ModelRow[] {
-	const filePath = resolve('static/api.json');
-	const raw = readFileSync(filePath, 'utf-8');
-	const api = JSON.parse(raw) as ModelsDevApi;
-	return flattenModelsDev(api);
-}
-
+/**
+ * Optional remote refresh path. Initial page data comes from +page.server.ts
+ * so the table is not blocked on experimental remote SSR.
+ */
 export const getModelRows = query(async () => {
-	cachedRows ??= loadModelRows();
-	return cachedRows;
+	return loadModelRows();
 });

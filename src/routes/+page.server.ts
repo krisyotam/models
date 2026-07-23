@@ -1,4 +1,6 @@
 import type { Config } from '@sveltejs/adapter-vercel';
+import { loadModelRows } from '$lib/models/load';
+import type { PageServerLoad } from './$types';
 
 export const config = {
 	isr: {
@@ -6,3 +8,8 @@ export const config = {
 		allowQuery: ['search', 'provider', 'sort', 'order']
 	}
 } satisfies Config;
+
+export const load: PageServerLoad = async () => {
+	const rows = loadModelRows();
+	return { rows };
+};

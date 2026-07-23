@@ -4,9 +4,10 @@
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 	import { createSearchParamsSchema, useSearchParams } from 'runed/kit';
 	import type { ModelRow } from '$lib/models/types';
-	import { getModelRows } from './models.remote';
 
-	const allRows = await getModelRows();
+	let { rows }: { rows: ModelRow[] } = $props();
+	// page data is stable for the request; derived keeps the linter happy
+	const allRows = $derived(rows);
 
 	type SortValue = string | number | boolean | undefined;
 	type Column = {

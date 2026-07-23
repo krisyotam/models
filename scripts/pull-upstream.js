@@ -14,6 +14,8 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
 const outPath = resolve(root, 'static/api.json');
+// Bundled server copy — static/ is CDN-only on Vercel and is not readable via fs there
+const libOutPath = resolve(root, 'src/lib/data/api.json');
 const customPath = resolve(__dirname, 'custom-models.json');
 
 async function main() {
@@ -40,13 +42,17 @@ async function main() {
 		console.log('  No custom-models.json found, using upstream only');
 	}
 
-	writeFileSync(outPath, JSON.stringify(api));
+	const json = JSON.stringify(api);
+	writeFileSync(outPath, json);
+	writeFileSync(libOutPath, json);
 
 	const providers = Object.keys(api).length;
 	let models = 0;
 	for (const p of Object.values(api)) models += Object.keys(p.models).length;
 
 	console.log(`Done: ${providers} providers, ${models} models (${customCount} custom)`);
+	console.log(`Wrote ${outPath}`);
+	console.log(`Wrote ${libOutPath}`);
 }
 
 main().catch((e) => {
